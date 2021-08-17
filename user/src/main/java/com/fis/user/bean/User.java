@@ -1,8 +1,8 @@
-package com.fis.springlearn.bean;
+package com.fis.user.bean;
+
 
 import java.util.Set;
 
-import javax.management.relation.Role;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -62,9 +62,9 @@ public class User {
 		this.roleList = roleList;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", roleList=" + roleList + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", username=" + username + ", password=" + password + ", roleList=" + roleList + "]";
+//	}
 
 }

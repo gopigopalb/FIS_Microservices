@@ -2,25 +2,34 @@ package com.fis.user.controller;
 
 
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fis.user.bean.User;
-
-
-
+import com.fis.user.repository.UserRepository;
 
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/users")
 public class UserController {
-	@GetMapping("/{number}")
-	public User getAccount(@PathVariable long number) {
-		return new User(987987973432l, "savings", 23434);
+
+//	@Autowired
+//	private AppUserDetailsService appUserDetailsService;
+//
+//	@GetMapping("/{username}")
+//	public UserDetails findByUsername(@PathVariable String username) {
+//		return appUserDetailsService.loadUserByUsername(username);
+//	}
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@GetMapping("/{username}")
+	public User findByUsername(@PathVariable String username) {
+		return userRepository.findByUsername(username);
 	}
 
 }
-
